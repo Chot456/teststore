@@ -3,12 +3,9 @@ package TestCases;
 import java.io.IOException;
 
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import base.BasePage;
 import base.Hooks;
 import pageObjects.HomePage;
 import pageObjects.OrderFormDelivery;
@@ -41,22 +38,22 @@ public class OrderCompleteTest extends Hooks {
         ShopHomePage shopHome = new ShopHomePage();
         shopHome.getProdOne().click();
 
-        ShopProductPage shopProd = new ShopProductPage(driver);
+        ShopProductPage shopProd = new ShopProductPage();
         Select option = new Select(shopProd.getSizeOption());
         option.selectByVisibleText("M");
         shopProd.getQuantIncrease().click();
         shopProd.getAddToCartBtn().click();
 
-        ShopContentPanel cPanel = new ShopContentPanel(driver);
+        ShopContentPanel cPanel = new ShopContentPanel();
         cPanel.getCheckoutBtn().click();
 
-        ShoppingCart cart = new ShoppingCart(driver);
+        ShoppingCart cart = new ShoppingCart();
         cart.getHavePromo().click();
         cart.getPromoTextbox().sendKeys("20OFF");
         cart.getPromoAddBtn().click();
         cart.getProceedCheckoutBtn().click();
 
-        OrderFormPersonalInfo pInfo = new OrderFormPersonalInfo(driver);
+        OrderFormPersonalInfo pInfo = new OrderFormPersonalInfo();
         pInfo.getGenderMr().click();
         pInfo.getFirstNameField().sendKeys("John");
         pInfo.getLastnameField().sendKeys("Doe");
@@ -65,7 +62,7 @@ public class OrderCompleteTest extends Hooks {
         pInfo.getContinueBtn().click();
 
         // creating an object of the order delivery info page
-        OrderFormDelivery orderDelivery = new OrderFormDelivery(driver);
+        OrderFormDelivery orderDelivery = new OrderFormDelivery();
         orderDelivery.getAddressField().sendKeys("123 Main Street");
         orderDelivery.getCityField().sendKeys("Houston");
         Select state = new Select(orderDelivery.getStateDropdown());
@@ -74,12 +71,12 @@ public class OrderCompleteTest extends Hooks {
         orderDelivery.getContinueBtn().click();
 
         // creating an object of the shipping method page
-        OrderFormShippingMethod shipMethod = new OrderFormShippingMethod(driver);
+        OrderFormShippingMethod shipMethod = new OrderFormShippingMethod();
         shipMethod.getDeliveryMsgTextbox().sendKeys("If I am not in, please leave my delivery on my porch.");
         shipMethod.getContinueBtn().click();
 
         // creating an object of the payment options page
-        OrderFormPayment orderPay = new OrderFormPayment(driver);
+        OrderFormPayment orderPay = new OrderFormPayment();
         orderPay.getPayByCheckRadioBtn().click();
         orderPay.getTermsConditionsCheckbox().click();
         orderPay.getOrderBtn().click();
