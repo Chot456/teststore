@@ -1,32 +1,37 @@
 package pageObjects;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class TestStoreLoginPage {
+import base.BasePage;
+
+public class TestStoreLoginPage extends BasePage {
 
     WebDriver driver;
-
-    public TestStoreLoginPage(WebDriver driver) {
-        this.driver = driver;
-    }
-
-    // https://www.automationtesting.co.uk/loginPortal.html
 
     By email = By.cssSelector("input#field-email");
     By password = By.cssSelector("[name='password']");
     By signInBtn = By.cssSelector("button#submit-login");
 
-    public WebElement getEmail() {
+    public TestStoreLoginPage() throws IOException {
+        super();
+    }
+
+    public WebElement getEmail() throws IOException {
+        this.driver = getDriver();
         return driver.findElement(email);
     }
 
-    public WebElement getPassword() {
+    public WebElement getPassword() throws IOException {
+        this.driver = getDriver();
         return driver.findElement(password);
     }
 
-    public WebElement getSignInBtn() {
+    public WebElement getSignInBtn() throws IOException {
+        this.driver = getDriver();
         return driver.findElement(signInBtn);
     }
 }

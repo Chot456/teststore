@@ -29,51 +29,63 @@ public class OrderFormDelivery extends BasePage {
         super();
     }
 
-    public WebElement getFirstNameField() {
+    public WebElement getFirstNameField() throws IOException {
+        this.driver = getDriver();
         return driver.findElement(firstNameField);
     }
 
-    public WebElement getLastnameField() {
+    public WebElement getLastnameField() throws IOException {
+        this.driver = getDriver();
         return driver.findElement(lastNameField);
     }
 
-    public WebElement getCompanyField() {
+    public WebElement getCompanyField() throws IOException {
+        this.driver = getDriver();
         return driver.findElement(companyNameField);
     }
 
-    public WebElement getAddressField() {
+    public WebElement getAddressField() throws IOException {
+        this.driver = getDriver();
         return driver.findElement(addressField);
     }
 
-    public WebElement getAddressCompField() {
+    public WebElement getAddressCompField() throws IOException {
+        this.driver = getDriver();
         return driver.findElement(addressComplementField);
     }
 
-    public WebElement getCityField() {
+    public WebElement getCityField() throws IOException {
+        this.driver = getDriver();
         return driver.findElement(cityField);
     }
 
-    public WebElement getStateDropdown() {
+    public WebElement getStateDropdown() throws IOException {
+        this.driver = getDriver();
         return driver.findElement(stateDropdown);
     }
 
-    public WebElement getPostcodeField() {
+    public WebElement getPostcodeField() throws IOException {
+        this.driver = getDriver();
         return driver.findElement(postcodeField);
     }
 
-    public WebElement getCountryDropdown() {
+    public WebElement getCountryDropdown() throws IOException {
+        this.driver = getDriver();
         return driver.findElement(countryDropdown);
     }
 
-    public WebElement getPhoneField() {
+    public WebElement getPhoneField() throws IOException {
+        this.driver = getDriver();
         return driver.findElement(phoneField);
     }
 
-    public WebElement getInvoiceSameAddCheckbox() {
+    public WebElement getInvoiceSameAddCheckbox() throws IOException {
+        this.driver = getDriver();
         return driver.findElement(invoiceSameAddCheckboc);
     }
 
-    public WebElement getContinueBtn() {
+    public WebElement getContinueBtn() throws IOException {
+        this.driver = getDriver();
         return driver.findElement(continueBtn);
     }
 
