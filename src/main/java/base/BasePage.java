@@ -20,6 +20,7 @@ public class BasePage {
     private String url;
     private Properties prop;
     public static String screenShotDestinationPath;
+    public static WebDriverWait wait;
 
     public BasePage() throws IOException {
         prop = new Properties();

@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import actions.ActionKeywords;
 import base.ExtentManager;
 import base.Hooks;
 import pageObjects.HomePage;
@@ -24,7 +25,7 @@ public class AddRemoveItemBasketTest extends Hooks {
     }
 
     @Test
-    public void addRemoveItem() throws IOException {
+    public void addRemoveItem() throws Exception {
 
         ExtentManager.log("Starting AddRemoveItemBasketTest...");
 
@@ -33,12 +34,12 @@ public class AddRemoveItemBasketTest extends Hooks {
         home.getCookie().click();
         ExtentManager.pass("Reached the shop homepage");
 
-        home.getTestStoreLink().click();
+        ActionKeywords.click(home.getTestStoreLink());
 
         // creating an object of the test store homepage
         ShopHomePage shopHome = new ShopHomePage();
         ExtentManager.pass("Reached the shop product page");
-        shopHome.getProdOne().click();
+        ActionKeywords.click(shopHome.getProdOne());
 
         // creating an object of the shop products page (when a product has been
         // selected)
@@ -46,24 +47,24 @@ public class AddRemoveItemBasketTest extends Hooks {
         Select option = new Select(shopProd.getSizeOption());
         option.selectByVisibleText("M");
         ExtentManager.pass("Have successfully selected product size");
-        shopProd.getQuantIncrease().click();
+        ActionKeywords.click(shopProd.getQuantIncrease());
         ExtentManager.pass("Have successfully increased quantity");
-        shopProd.getAddToCartBtn().click();
+        ActionKeywords.click(shopProd.getAddToCartBtn());
         ExtentManager.pass("Have successfully added product to basket");
 
         // creating an object of the cart content panel (once an item was added)
         ShopContentPanel cPanel = new ShopContentPanel();
-        cPanel.getContinueShopBtn().click();
-        shopProd.getHomepageLink().click();
-        shopHome.getProdTwo().click();
-        shopProd.getAddToCartBtn().click();
-        cPanel.getCheckoutBtn().click();
+        ActionKeywords.click(cPanel.getContinueShopBtn());
+        ActionKeywords.click(shopProd.getHomepageLink());
+        ActionKeywords.click(shopHome.getProdTwo());
+        ActionKeywords.click(shopProd.getAddToCartBtn());
+        ActionKeywords.click(cPanel.getCheckoutBtn());
 
         ShoppingCart cart = new ShoppingCart();
-        cart.getDeleteItemTwo().click();
+        ActionKeywords.click(cart.getDeleteItemTwo());
 
         // using a wait to ensure the deletion has taken place
-        waitForElementVisible(cart.getDeleteItemTwo(), 120);
+        ActionKeywords.waitForElementVisible(cart.getDeleteItemTwo(), 120);
 
         System.out.println(cart.getTotalAmount().getText());
 
