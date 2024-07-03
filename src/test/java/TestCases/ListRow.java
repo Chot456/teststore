@@ -28,10 +28,8 @@ public class ListRow extends Hooks {
         // creating an object of the automationtesting.co.uk webpage
 
         try {
-
-            // Search for a term, e.g., "technology"
             WebElement searchBox = getDriver().findElement(By.name("search_query"));
-            searchBox.sendKeys("technology");
+            searchBox.sendKeys("cocomelon");
             searchBox.submit();
 
             // Wait for the page to load and display the results
