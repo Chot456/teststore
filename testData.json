@@ -1,0 +1,14 @@
+{
+    "data": [
+        {
+            "test1": {
+                "username" : "test1@gmail.com",
+                "password" : "password"
+            },   
+            "test2": {
+                "username" : "test2@gmail.com",
+                "password" : "password"
+            }
+        }
+    ]
+}
